@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
+    <Get name="threadPool">
+        <Set name="maxThreads">500</Set>
+    </Get>
+    <New class="org.eclipse.jetty.plus.jndi.EnvEntry">
+        <Arg>retrieverefdata.service.url</Arg>
+        <Arg type="java.lang.String">retrieverefdata.service.url</Arg>
+    </New>
+
+</Configure>
