@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
+    <Get name="threadPool">
+        <Set name="maxThreads">500</Set>
+    </Get>
+    <New class="org.eclipse.jetty.plus.jndi.EnvEntry">
+        <Arg>retrieverefdata.service.url</Arg>
+        <Arg type="java.lang.String">retrieverefdata.service.url</Arg>
+    </New>
+    <New class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg></Arg>
+        <Arg>jdbc/ibRefData</Arg>
+        <Arg>
+            <New class="org.apache.tomcat.jdbc.pool.DataSource">
+                <Set name="driverClassName">oracle.jdbc.OracleDriver</Set>
+                <Set name="url">jdbc:oracle:thin:@10.112.159.90:1521:GXYAPP1D</Set>
+                <Set name="username">cit5a_ref_user</Set>
+                <Set name="password">cit5a_ref_user</Set>
+                <Set name="initialSize">5</Set>
+                <Set name="maxActive">50</Set>
+                <Set name="maxIdle">5</Set>
+                <Set name="minIdle">2</Set>
+                <Set name="maxWait">4000</Set>
+            </New>
+        </Arg>
+    </New>
+
+</Configure>
+
